@@ -20,8 +20,12 @@
  *    console.log(r.height);      // => 20
  *    console.log(r.getArea());   // => 200
  */
-function Rectangle(/* width, height */) {
-  throw new Error('Not implemented');
+function Rectangle(width, height) {
+  this.width = width;
+  this.height = height;
+  this.getArea = function func() {
+    return this.width * this.height;
+  };
 }
 
 
@@ -35,8 +39,8 @@ function Rectangle(/* width, height */) {
  *    [1,2,3]   =>  '[1,2,3]'
  *    { width: 10, height : 20 } => '{"height":10,"width":20}'
  */
-function getJSON(/* obj */) {
-  throw new Error('Not implemented');
+function getJSON(obj) {
+  return JSON.stringify(obj);
 }
 
 
@@ -53,6 +57,10 @@ function getJSON(/* obj */) {
  */
 function fromJSON(/* proto, json */) {
   throw new Error('Not implemented');
+  // console.log(JSON.parse(json));
+  // const obj = Object.create(proto);
+  // Object.defineProperty(obj, JSON.parse(json));
+  // return obj;
 }
 
 
@@ -111,32 +119,61 @@ function fromJSON(/* proto, json */) {
  */
 
 const cssSelectorBuilder = {
+  arr: [],
+
   element(/* value */) {
     throw new Error('Not implemented');
+    // const newArr = { ...cssSelectorBuilder };
+    // newArr.arr = [...this.arr, value];
+    // return newArr;
   },
 
   id(/* value */) {
     throw new Error('Not implemented');
+    // const newArr = { ...cssSelectorBuilder };
+    // newArr.arr = [...this.arr, `#${value}`];
+    // return newArr;
   },
 
   class(/* value */) {
     throw new Error('Not implemented');
+    // const newArr = { ...cssSelectorBuilder };
+    // newArr.arr = [...this.arr, `.${value}`];
+    // return newArr;
   },
 
   attr(/* value */) {
     throw new Error('Not implemented');
+    // const newArr = { ...cssSelectorBuilder };
+    // newArr.arr = [...this.arr, `[${value}]`];
+    // return newArr;
   },
 
   pseudoClass(/* value */) {
     throw new Error('Not implemented');
+    // const newArr = { ...cssSelectorBuilder };
+    // newArr.arr = [...this.arr, `:${value}`];
+    // return newArr;
   },
 
   pseudoElement(/* value */) {
     throw new Error('Not implemented');
+    // const newArr = { ...cssSelectorBuilder };
+    // newArr.arr = [...this.arr, `::${value}`];
+    // return newArr;
   },
 
   combine(/* selector1, combinator, selector2 */) {
     throw new Error('Not implemented');
+    // const newArr = { ...cssSelectorBuilder };
+    // newArr.arr = [...this.arr, ...selector1.arr, ` ${combinator} `, ...selector2.arr];
+    // return newArr;
+  },
+
+  stringify() {
+    // const result = this.arr.join('');
+    // this.arr = [];
+    // return result;
   },
 };
 
